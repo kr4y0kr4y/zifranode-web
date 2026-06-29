@@ -131,13 +131,14 @@ a {
 }
 
 .logo-mark {
-    width: 42px;
-    height: 42px;
-    border-radius: 8px;
+    height: 36px;
+    width: auto;
+    max-width: 120px;
+    border-radius: 6px;
     object-fit: contain;
     object-position: center;
     background: white;
-    padding: 4px;
+    padding: 4px 8px;
 }
 
 .logo-text,
