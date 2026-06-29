@@ -2,3 +2,8 @@
 *.log
 node_modules/
 .vscode/
+# Scripts de desarrollo y generación (no deben exponerse en producción)
+gen_services.py
+update_links.py
+# Activos de respaldo no usados en producción
+logo_backup.png

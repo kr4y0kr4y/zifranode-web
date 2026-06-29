@@ -1,225 +1,501 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZifraNode | Ciberseguridad y Redes</title>
-    <meta name="description" content="Soluciones avanzadas en ciberseguridad, redes e infraestructura TI para empresas. Protegemos lo que más importa.">
+    <title>ZifraNode | Infraestructura TI, Redes, Seguridad y Automatización</title>
+    <meta name="description"
+        content="ZifraNode integra redes empresariales, WiFi profesional, cableado estructurado, electricidad, seguridad electrónica, domótica, ciberseguridad operacional, soporte TI y monitoreo para empresas, oficinas, condominios y hogares de alto estándar.">
+    <meta name="keywords"
+        content="infraestructura TI, redes empresariales, WiFi profesional, cableado estructurado, electricidad, camaras de seguridad, control de acceso, domotica, ciberseguridad operacional, soporte TI, monitoreo, Santiago Chile">
+    <meta name="author" content="ZifraNode">
+    <meta property="og:title" content="ZifraNode | Redes, electricidad, seguridad electrónica y automatización">
+    <meta property="og:description"
+        content="Un solo proveedor técnico para infraestructura TI, redes, electricidad, seguridad electrónica, domótica, soporte y monitoreo.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://zifranode.cl/">
+    <meta property="og:image" content="https://zifranode.cl/logo%20zifranode.png">
+    <link rel="canonical" href="https://zifranode.cl/">
     <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="icon" type="image/png" href="logo%20zifranode.png">
 </head>
+
 <body>
-    <header id="header">
-        <div class="container header-container">
-            <a href="#" class="logo">
-                <img src="logo.png" alt="ZifraNode Logo">
-            </a>
-            <button class="mobile-menu-btn" aria-label="Abrir menú">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
-            <nav class="nav-menu">
-                <ul>
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="#nosotros">Nosotros</a></li>
-                    <li><a href="#contacto" class="btn btn-primary">Contacto</a></li>
-                </ul>
-            </nav>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#inicio" class="logo" aria-label="Ir al inicio">
+                    <img src="logo%20zifranode.png" alt="ZifraNode" class="logo-mark">
+                    <span class="logo-text">ZifraNode</span>
+                </a>
+                <nav class="nav" aria-label="Navegación principal">
+                    <ul class="nav-list">
+                        <li><a href="#servicios" class="nav-link">Servicios</a></li>
+                        <li><a href="#soluciones" class="nav-link">Soluciones</a></li>
+                        <li><a href="#beneficios" class="nav-link">Beneficios</a></li>
+                        <li><a href="#panorama" class="nav-link">Panorama</a></li>
+                        <li><a href="#proceso" class="nav-link">Proceso</a></li>
+                        <li><a href="#contacto" class="nav-link btn-contact">Cotizar</a></li>
+                    </ul>
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
+                        <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+                    <button class="mobile-toggle" aria-label="Abrir menú" aria-expanded="false">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </nav>
+            </div>
         </div>
     </header>
 
     <main>
-        <!-- Hero Section -->
         <section id="inicio" class="hero">
-            <div class="container hero-content">
-                <div class="hero-text fade-in">
-                    <h1>Seguridad Digital para el <span class="accent-text">Mundo Moderno</span></h1>
-                    <p>Expertos en ciberseguridad, redes e infraestructura TI. Protegemos sus activos digitales con soluciones robustas y estratégicas.</p>
-                    <div class="hero-buttons">
-                        <a href="#servicios" class="btn btn-primary">Nuestros Servicios</a>
-                        <a href="#contacto" class="btn btn-outline">Contáctanos</a>
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="badge-dot"></span>
+                        <span>Infraestructura tecnológica integrada</span>
                     </div>
-                </div>
-            </div>
-            <div class="hero-bg-overlay"></div>
-        </section>
-
-        <!-- Services Section -->
-        <section id="servicios" class="section">
-            <div class="container">
-                <div class="section-header fade-in">
-                    <h2 class="section-title">Nuestras Soluciones</h2>
-                    <p class="section-subtitle">Servicios integrales diseñados para fortalecer su infraestructura tecnológica.</p>
-                </div>
-                
-                <div class="services-grid">
-                    <div class="service-card fade-in">
-                        <div class="service-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                        </div>
-                        <h3>Ciberseguridad</h3>
-                        <p>Auditorías de seguridad, pentesting, protección de datos y respuesta a incidentes para mantener su negocio seguro ante amenazas.</p>
+                    <h1 class="hero-title">Infraestructura TI, redes y seguridad para operaciones que no pueden fallar.</h1>
+                    <p class="hero-subtitle">
+                        Redes, electricidad, seguridad electrónica y automatización en un solo proveedor técnico.
+                        Diseñamos, instalamos y mantenemos soluciones para empresas, oficinas, locales comerciales,
+                        condominios y hogares de alto estándar.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#contacto" class="btn btn-primary">Solicitar evaluación</a>
+                        <a href="#servicios" class="btn btn-secondary">Ver servicios</a>
                     </div>
-
-                    <div class="service-card fade-in">
-                        <div class="service-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                        </div>
-                        <h3>Redes y Conectividad</h3>
-                        <p>Diseño, implementación y optimización de redes LAN/WAN, VPNs corporativas y soluciones de conectividad inalámbrica segura.</p>
-                    </div>
-
-                    <div class="service-card fade-in">
-                        <div class="service-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
-                        </div>
-                        <h3>Infraestructura TI</h3>
-                        <p>Gestión de servidores, virtualización, soporte técnico y mantenimiento preventivo para garantizar la continuidad operativa.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="nosotros" class="section bg-light">
-            <div class="container about-container">
-                <div class="about-content fade-in">
-                    <h2 class="section-title">Sobre ZifraNode</h2>
-                    <p>Somos un equipo multidisciplinario apasionado por la tecnología y la seguridad. En ZifraNode, no solo implementamos soluciones; construimos relaciones de confianza con nuestros clientes, asegurando que su infraestructura tecnológica sea un activo estratégico y no un punto vulnerable.</p>
-                    <ul class="features-list">
-                        <li>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            Experiencia técnica certificada
-                        </li>
-                        <li>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            Enfoque proactivo de seguridad
-                        </li>
-                        <li>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            Soporte personalizado y ágil
-                        </li>
+                    <ul class="hero-points" aria-label="Servicios principales">
+                        <li>Redes y WiFi profesional</li>
+                        <li>Cableado y electricidad</li>
+                        <li>CCTV, acceso y monitoreo</li>
                     </ul>
                 </div>
-                <div class="about-image fade-in">
-                    <!-- Geometric network pattern constructed with CSS/SVG in background -->
-                    <div class="abstract-shape"></div>
+
+                <div class="hero-panel" aria-label="Resumen de capacidades ZifraNode">
+                    <div class="signal-card brand-card">
+                        <img src="logo%20zifranode.png" alt="ZifraNode" class="hero-logo">
+                        <p>Integración técnica para espacios conectados, seguros y operativos.</p>
+                        <div class="brand-lines" aria-hidden="true">
+                            <span class="brand-line-a"></span>
+                            <span class="brand-line-b"></span>
+                            <span class="brand-line-c"></span>
+                        </div>
+                    </div>
+                    <div class="signal-grid">
+                        <div class="signal-card">
+                            <span>01</span>
+                            <strong>Diagnóstico</strong>
+                            <p>Levantamiento técnico y alcance claro antes de ejecutar.</p>
+                        </div>
+                        <div class="signal-card">
+                            <span>02</span>
+                            <strong>Implementación</strong>
+                            <p>Instalación coordinada de infraestructura física y lógica.</p>
+                        </div>
+                        <div class="signal-card">
+                            <span>03</span>
+                            <strong>Operación</strong>
+                            <p>Soporte, monitoreo y mejoras para reducir interrupciones.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Stats Section -->
-        <section class="stats-section">
-            <div class="container stats-grid">
-                <div class="stat-item fade-in">
-                    <span class="stat-number">+10</span>
-                    <span class="stat-label">Años de Experiencia</span>
+        <section id="servicios" class="services">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-kicker">Servicios</span>
+                    <h2 class="section-title">Todo lo necesario para una operación tecnológica confiable</h2>
+                    <p class="section-subtitle">
+                        Integramos redes, energía, seguridad electrónica y soporte TI con una mirada práctica:
+                        menos coordinación entre proveedores y más control sobre el resultado.
+                    </p>
                 </div>
-                <div class="stat-item fade-in">
-                    <span class="stat-number">24/7</span>
-                    <span class="stat-label">Monitoreo Activo</span>
-                </div>
-                <div class="stat-item fade-in">
-                    <span class="stat-number">100%</span>
-                    <span class="stat-label">Compromiso</span>
+
+                <div class="services-grid-8">
+                    <a href="redes.html" class="service-card">
+                        <div class="service-icon">RN</div>
+                        <h3>Redes empresariales</h3>
+                        <p>Arquitectura LAN/WAN para operación crítica: switches, routers, VLAN, enlaces, segmentación y orden lógico de la red.</p>
+                        <span class="service-tag">Backbone, rack y administración</span>
+                    </a>
+                    <a href="redes.html" class="service-card">
+                        <div class="service-icon">WF</div>
+                        <h3>WiFi profesional</h3>
+                        <p>Cobertura inalámbrica planificada por zonas, densidad de usuarios, roaming, redes de invitados y puntos de acceso administrables.</p>
+                        <span class="service-tag">Cobertura, roaming y capacidad</span>
+                    </a>
+                    <a href="cableado.html" class="service-card">
+                        <div class="service-icon">CE</div>
+                        <h3>Cableado estructurado</h3>
+                        <p>Puntos de red, racks, canalización, ordenamiento, fibra óptica y documentación técnica para crecimiento futuro.</p>
+                        <span class="service-tag">Cat 6, fibra, racks</span>
+                    </a>
+                    <a href="electricidad.html" class="service-card">
+                        <div class="service-icon">EL</div>
+                        <h3>Electricidad</h3>
+                        <p>Instalaciones eléctricas para tecnología, tableros, circuitos dedicados, respaldo energético y continuidad operativa.</p>
+                        <span class="service-tag">Circuitos, tableros, respaldo</span>
+                    </a>
+                    <a href="control-acceso.html" class="service-card">
+                        <div class="service-icon">CS</div>
+                        <h3>Cámaras de seguridad</h3>
+                        <p>CCTV e IP, grabación, visualización remota, analítica básica y diseño de cobertura para puntos críticos.</p>
+                        <span class="service-tag">CCTV, NVR, visualización</span>
+                    </a>
+                    <a href="control-acceso.html" class="service-card">
+                        <div class="service-icon">CA</div>
+                        <h3>Control de acceso</h3>
+                        <p>Acceso por tarjeta, biometría, cerraduras, portones, registros y control de ingreso para recintos y comunidades.</p>
+                        <span class="service-tag">Puertas, portones, registros</span>
+                    </a>
+                    <a href="domotica.html" class="service-card">
+                        <div class="service-icon">DM</div>
+                        <h3>Domótica</h3>
+                        <p>Automatización de iluminación, climatización, escenas, sensores y control remoto para espacios modernos.</p>
+                        <span class="service-tag">Escenas, sensores, control</span>
+                    </a>
+                    <a href="ciberseguridad.html" class="service-card">
+                        <div class="service-icon">CO</div>
+                        <h3>Ciberseguridad operacional</h3>
+                        <p>Hardening, firewalls, VPN, respaldos, segmentación y prácticas técnicas para proteger la continuidad del negocio.</p>
+                        <span class="service-tag">Firewall, VPN, respaldo</span>
+                    </a>
+                    <a href="informatica.html" class="service-card">
+                        <div class="service-icon">TI</div>
+                        <h3>Soporte TI</h3>
+                        <p>Atención técnica, mantención de equipos, servidores, estaciones de trabajo, usuarios y continuidad del entorno.</p>
+                        <span class="service-tag">Usuarios, equipos, servidores</span>
+                    </a>
+                    <a href="#contacto" class="service-card">
+                        <div class="service-icon">MO</div>
+                        <h3>Monitoreo</h3>
+                        <p>Supervisión de enlaces, equipos críticos, cámaras, respaldos y alertas para anticipar fallas operativas.</p>
+                        <span class="service-tag">Alertas y estado operacional</span>
+                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contacto" class="section">
-            <div class="container contact-container">
-                <div class="contact-info fade-in">
-                    <h2 class="section-title">Hablemos de Seguridad</h2>
-                    <p>¿Listo para fortalecer su infraestructura? Contáctenos para una evaluación inicial sin compromiso.</p>
-                    
-                    <div class="contact-methods">
-                        <div class="contact-method">
-                            <div class="icon-box">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                            </div>
-                            <div>
-                                <h4>Email</h4>
-                                <a href="mailto:contacto@zifranode.com">contacto@zifranode.com</a>
-                            </div>
+        <section id="soluciones" class="solutions">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-kicker">Soluciones</span>
+                    <h2 class="section-title">Implementaciones según el tipo de espacio</h2>
+                    <p class="section-subtitle">
+                        Adaptamos el alcance técnico al entorno, al riesgo operativo y al nivel de servicio requerido.
+                    </p>
+                </div>
+
+                <div class="solution-grid">
+                    <article class="solution-card">
+                        <h3>Empresas y oficinas</h3>
+                        <p>Redes cableadas, WiFi corporativo, salas de comunicaciones, soporte TI, seguridad perimetral y monitoreo.</p>
+                    </article>
+                    <article class="solution-card">
+                        <h3>Locales comerciales</h3>
+                        <p>Cámaras, control de acceso, conectividad para POS, WiFi de clientes, continuidad eléctrica y soporte técnico.</p>
+                    </article>
+                    <article class="solution-card">
+                        <h3>Condominios y comunidades</h3>
+                        <p>CCTV, portones, accesos, citofonía, redes comunes, salas técnicas y mantención de sistemas críticos.</p>
+                    </article>
+                    <article class="solution-card">
+                        <h3>Hogares de alto estándar</h3>
+                        <p>WiFi de alta cobertura, domótica, cámaras, control de iluminación, acceso remoto y redes residenciales robustas.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="beneficios" class="benefits">
+            <div class="container benefits-grid">
+                <div>
+                    <span class="section-kicker">Beneficios</span>
+                    <h2 class="section-title">Un proveedor técnico para coordinar menos y ejecutar mejor</h2>
+                    <p class="section-subtitle left">
+                        Cuando electricidad, cableado, red, seguridad y soporte se planifican juntos, el proyecto queda
+                        más ordenado, mantenible y preparado para crecer.
+                    </p>
+                    <a href="#contacto" class="btn btn-primary">Agendar conversación</a>
+                </div>
+                <div class="benefit-list">
+                    <div class="benefit-item">
+                        <strong>Menos fricción de coordinación</strong>
+                        <p>Un equipo técnico integra disciplinas que normalmente se gestionan por separado.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <strong>Diseño preparado para operación</strong>
+                        <p>Orden, documentación, escalabilidad y mantención considerados desde el levantamiento.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <strong>Continuidad y respuesta</strong>
+                        <p>Soporte y monitoreo para detectar incidentes, reducir caídas y resolver con contexto.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <strong>Experiencia técnica clara</strong>
+                        <p>Propuestas comprensibles, alcance definido y comunicación directa durante la ejecución.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="panorama" class="cybermap-section">
+            <div class="container cybermap-grid">
+                <div class="cybermap-copy">
+                    <span class="section-kicker">Panorama operacional</span>
+                    <h2 class="section-title">La infraestructura moderna también necesita visibilidad digital</h2>
+                    <p class="section-subtitle left">
+                        Las redes, cámaras, accesos, equipos y respaldos conviven en el mismo entorno operativo.
+                        Por eso incorporamos ciberseguridad operacional como una capa práctica de diseño, segmentación,
+                        acceso remoto seguro y monitoreo técnico.
+                    </p>
+                    <div class="insight-list">
+                        <div>
+                            <strong>Segmentación</strong>
+                            <span>Separación de redes corporativas, invitados, cámaras y dispositivos críticos.</span>
                         </div>
-                        
-                        <div class="contact-method">
-                            <div class="icon-box">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                            </div>
-                            <div>
-                                <h4>Ubicación</h4>
-                                <span>Santiago, Chile</span>
-                            </div>
+                        <div>
+                            <strong>Acceso seguro</strong>
+                            <span>VPN, reglas de firewall y administración remota con menor exposición.</span>
+                        </div>
+                        <div>
+                            <strong>Continuidad</strong>
+                            <span>Respaldos, alertas y revisión de puntos técnicos que pueden afectar la operación.</span>
                         </div>
                     </div>
                 </div>
+                <div class="cybermap-frame">
+                    <div class="map-toolbar">
+                        <span></span>
+                        <strong>Mapa global de actividad digital</strong>
+                    </div>
+                    <div class="cybermap-placeholder" data-cybermap-placeholder>
+                        <p>El mapa de actividad digital se carga desde Kaspersky bajo demanda para mantener la página rápida.</p>
+                        <button type="button" class="btn btn-primary" data-load-cybermap>Ver mapa interactivo</button>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                <form class="contact-form fade-in" id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Nombre</label>
-                        <input type="text" id="name" name="name" required placeholder="Su nombre">
+        <section id="proceso" class="process">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-kicker">Proceso</span>
+                    <h2 class="section-title">De la necesidad al sistema funcionando</h2>
+                    <p class="section-subtitle">
+                        Trabajamos con una ruta simple para disminuir incertidumbre y acelerar decisiones.
+                    </p>
+                </div>
+
+                <div class="process-grid">
+                    <div class="process-step">
+                        <span>1</span>
+                        <h3>Levantamiento</h3>
+                        <p>Revisamos el espacio, requerimientos, puntos críticos, restricciones y prioridades del proyecto.</p>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Email Corporativo</label>
-                        <input type="email" id="email" name="email" required placeholder="nombre@empresa.com">
+                    <div class="process-step">
+                        <span>2</span>
+                        <h3>Diseño y propuesta</h3>
+                        <p>Definimos alcance, solución técnica, materiales, etapas y recomendaciones de implementación.</p>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="service">Servicio de Interés</label>
-                        <select id="service" name="service">
-                            <option value="general">Consulta General</option>
-                            <option value="ciberseguridad">Ciberseguridad</option>
-                            <option value="redes">Redes e Infraestructura</option>
-                            <option value="soporte">Soporte TI</option>
-                        </select>
+                    <div class="process-step">
+                        <span>3</span>
+                        <h3>Instalación</h3>
+                        <p>Ejecutamos cableado, energía, equipos, configuración, pruebas y puesta en marcha.</p>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="message">Mensaje</label>
-                        <textarea id="message" name="message" rows="4" required placeholder="¿En qué podemos ayudarle?"></textarea>
+                    <div class="process-step">
+                        <span>4</span>
+                        <h3>Soporte y monitoreo</h3>
+                        <p>Acompañamos la operación con atención técnica, mantención y supervisión de sistemas críticos.</p>
                     </div>
-                    
-                    <button type="submit" class="btn btn-primary btn-block">Enviar Mensaje</button>
-                </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container">
+                <div class="cta-content">
+                    <div>
+                        <span class="section-kicker light">Proyecto técnico integral</span>
+                        <h2>Conversemos sobre la infraestructura que necesita tu operación.</h2>
+                        <p>Cuéntanos qué necesitas resolver y te orientamos con una propuesta clara, técnica y comercial.</p>
+                    </div>
+                    <a href="#contacto" class="btn btn-light">Cotizar proyecto</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="contact">
+            <div class="container">
+                <div class="contact-wrapper">
+                    <div class="contact-info">
+                        <span class="section-kicker">Contacto</span>
+                        <h2>Solicita una evaluación técnica</h2>
+                        <p>
+                            Escríbenos con el tipo de espacio, comuna, servicios requeridos y urgencia. Responderemos
+                            con los siguientes pasos para levantar y cotizar el proyecto.
+                        </p>
+
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <div class="contact-icon">EM</div>
+                                <div>
+                                    <h4>Email</h4>
+                                    <a href="mailto:contacto@zifranode.cl">contacto@zifranode.cl</a>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">CL</div>
+                                <div>
+                                    <h4>Cobertura</h4>
+                                    <p>Santiago, Chile</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">WA</div>
+                                <div>
+                                    <h4>WhatsApp</h4>
+                                    <a href="https://wa.me/56982874767?text=Hola%20ZifraNode%2C%20quiero%20cotizar%20un%20proyecto%20t%C3%A9cnico."
+                                        target="_blank" rel="noopener noreferrer">+56 9 8287 4767</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+                        <input type="hidden" name="access_key" value="05b9e0c5-19a5-4c54-883e-8d727182af95">
+                        <input type="hidden" name="subject" value="Nueva cotización desde ZifraNode Web">
+                        <input type="hidden" name="from_name" value="ZifraNode Website">
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Nombre / Razón social *</label>
+                                <input type="text" id="name" name="name" autocomplete="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" autocomplete="email" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Teléfono</label>
+                                <input type="tel" id="phone" name="phone" autocomplete="tel">
+                            </div>
+                            <div class="form-group">
+                                <label for="client_type">Tipo de cliente</label>
+                                <select id="client_type" name="client_type">
+                                    <option value="">Seleccione...</option>
+                                    <option value="empresa">Empresa u oficina</option>
+                                    <option value="local">Local comercial</option>
+                                    <option value="condominio">Condominio o comunidad</option>
+                                    <option value="hogar">Hogar de alto estándar</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Servicio requerido</label>
+                            <select id="service" name="service">
+                                <option value="">Seleccione...</option>
+                                <option value="proyecto_integral">Proyecto integral</option>
+                                <option value="redes">Redes empresariales</option>
+                                <option value="wifi">WiFi profesional</option>
+                                <option value="cableado">Cableado estructurado</option>
+                                <option value="electricidad">Electricidad</option>
+                                <option value="camaras">Cámaras de seguridad</option>
+                                <option value="control_acceso">Control de acceso</option>
+                                <option value="domotica">Domótica</option>
+                                <option value="ciberseguridad_operacional">Ciberseguridad operacional</option>
+                                <option value="soporte_ti">Soporte TI</option>
+                                <option value="monitoreo">Monitoreo</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Cuéntanos qué necesitas *</label>
+                            <textarea id="message" name="message" rows="5"
+                                placeholder="Ejemplo: oficina de 20 puestos, cableado, WiFi, cámaras y control de acceso en Santiago..."
+                                required></textarea>
+                        </div>
+
+                        <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off">
+
+                        <button type="submit" class="btn btn-primary btn-block">Enviar solicitud</button>
+                        <div id="form-result" class="form-result" aria-live="polite"></div>
+                    </form>
+                </div>
             </div>
         </section>
     </main>
 
+    <a href="https://wa.me/56982874767?text=Hola%20ZifraNode%2C%20quiero%20cotizar%20un%20proyecto%20t%C3%A9cnico."
+        class="whatsapp-float" aria-label="Contactar por WhatsApp" target="_blank" rel="noopener noreferrer">
+        <span>WA</span>
+        <strong>WhatsApp</strong>
+    </a>
+
     <footer class="footer">
-        <div class="container footer-content">
-            <div class="footer-logo">
-                <h3>ZifraNode</h3>
-                <p>Seguridad. Redes. Futuro.</p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-brand-name">ZifraNode</div>
+                    <p>Infraestructura TI, redes, electricidad, seguridad electrónica, automatización, soporte y monitoreo.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Servicios</h4>
+                        <ul>
+                            <li><a href="#servicios">Redes y WiFi</a></li>
+                            <li><a href="#servicios">Electricidad y cableado</a></li>
+                            <li><a href="#servicios">CCTV y acceso</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Clientes</h4>
+                        <ul>
+                            <li><a href="#soluciones">Empresas</a></li>
+                            <li><a href="#soluciones">Locales comerciales</a></li>
+                            <li><a href="#soluciones">Condominios y hogares</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Contacto</h4>
+                        <ul>
+                            <li><a href="mailto:contacto@zifranode.cl">contacto@zifranode.cl</a></li>
+                            <li><a href="#contacto">Solicitar cotización</a></li>
+                            <li><a href="#proceso">Proceso de trabajo</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="footer-links">
-                <a href="#inicio">Inicio</a>
-                <a href="#servicios">Servicios</a>
-                <a href="#nosotros">Nosotros</a>
-                <a href="#contacto">Contacto</a>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ZifraNode. Todos los derechos reservados.</p>
             </div>
-            <div class="footer-social">
-                <!-- Social placeholders -->
-                <a href="#" aria-label="LinkedIn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                </a>
-                <a href="#" aria-label="Twitter">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
-                </a>
-            </div>
-        </div>
-        <div class="footer-bottom container">
-            <p>&copy; 2026 ZifraNode. Todos los derechos reservados.</p>
         </div>
     </footer>
 
     <script src="script.js"></script>
 </body>
+
 </html>
