@@ -23,13 +23,18 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 });
 
 const header = document.querySelector('.header');
+let isHeaderScrolled = false;
 
 function updateHeaderState() {
     if (!header) return;
-    header.classList.toggle('is-scrolled', window.pageYOffset > 30);
+    const shouldScroll = window.pageYOffset > 30;
+    if (shouldScroll !== isHeaderScrolled) {
+        isHeaderScrolled = shouldScroll;
+        header.classList.toggle('is-scrolled', isHeaderScrolled);
+    }
 }
 
-window.addEventListener('scroll', updateHeaderState);
+window.addEventListener('scroll', updateHeaderState, { passive: true });
 updateHeaderState();
 
 const mobileToggle = document.querySelector('.mobile-toggle');
@@ -128,25 +133,27 @@ function showNotification(message, type = 'info') {
 }
 
 const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
 
-function updateActiveNav() {
-    const scrollY = window.pageYOffset;
-
-    sections.forEach((section) => {
-        const sectionTop = section.offsetTop - 120;
-        const sectionBottom = sectionTop + section.offsetHeight;
-        const sectionId = section.getAttribute('id');
-
-        if (scrollY >= sectionTop && scrollY < sectionBottom) {
-            document.querySelectorAll('.nav-link').forEach((link) => {
-                link.classList.toggle('active', link.getAttribute('href') === `#${sectionId}`);
+const activeNavObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            const sectionId = entry.target.getAttribute('id');
+            navLinks.forEach((link) => {
+                const href = link.getAttribute('href');
+                link.classList.toggle('active', href === `#${sectionId}` || href === `index.html#${sectionId}`);
             });
         }
     });
-}
+}, {
+    root: null,
+    rootMargin: '-10% 0px -75% 0px', // Activa la sección cuando ocupa la parte superior-media
+    threshold: 0
+});
 
-window.addEventListener('scroll', updateActiveNav);
-updateActiveNav();
+sections.forEach((section) => {
+    activeNavObserver.observe(section);
+});
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {

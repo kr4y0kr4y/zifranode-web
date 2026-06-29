@@ -321,6 +321,8 @@ section {
         linear-gradient(0deg, transparent 49%, rgba(37, 99, 235, 0.18) 50%, transparent 51%);
     opacity: 0.5;
     animation: slow-rotate 18s linear infinite;
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 .hero::after {
@@ -561,8 +563,9 @@ section {
 
 .reveal-item {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(10px) translateZ(0);
     transition: opacity 0.28s ease, transform 0.28s ease;
+    will-change: opacity, transform;
 }
 
 .is-visible {
