@@ -17,7 +17,7 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         const target = document.querySelector(href);
         if (target) {
             event.preventDefault();
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            target.scrollIntoView({ block: 'start' });
         }
     });
 });
@@ -132,50 +132,13 @@ function showNotification(message, type = 'info') {
     }, 4200);
 }
 
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-link');
-
-const activeNavObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            const sectionId = entry.target.getAttribute('id');
-            navLinks.forEach((link) => {
-                const href = link.getAttribute('href');
-                link.classList.toggle('active', href === `#${sectionId}` || href === `index.html#${sectionId}`);
-            });
-        }
-    });
-}, {
-    root: null,
-    rootMargin: '-10% 0px -75% 0px', // Activa la sección cuando ocupa la parte superior-media
-    threshold: 0
-});
-
-sections.forEach((section) => {
-    activeNavObserver.observe(section);
-});
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-document.querySelectorAll('.service-card, .solution-card, .benefit-item, .process-step, .signal-card, .insight-list > div, .cybermap-frame').forEach((element) => {
-    element.classList.add('reveal-item');
-    observer.observe(element);
-});
-
 window.addEventListener('DOMContentLoaded', () => {
     const serviceParam = new URLSearchParams(window.location.search).get('service');
     const selectService = document.getElementById('service');
 
     if (serviceParam && selectService) {
         selectService.value = serviceParam;
-        document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        document.getElementById('contacto')?.scrollIntoView({ block: 'start' });
     }
 });
 
