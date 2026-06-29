@@ -19,7 +19,7 @@
     --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
     --container: 1200px;
     --section-padding: 82px;
-    --transition: all 0.16s ease;
+    --transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, transform 0.15s ease, opacity 0.15s ease, box-shadow 0.15s ease;
 }
 
 body.light-theme {
@@ -64,6 +64,9 @@ body::before {
         linear-gradient(90deg, rgba(96, 165, 250, 0.045) 1px, transparent 1px);
     background-size: 64px 64px;
     mask-image: linear-gradient(to bottom, black, transparent 70%);
+    -webkit-mask-image: linear-gradient(to bottom, black, transparent 70%);
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 body::after {
@@ -74,6 +77,8 @@ body::after {
     pointer-events: none;
     background: linear-gradient(to top, rgba(6, 182, 212, 0.08), transparent);
     z-index: -1;
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 a {
@@ -93,9 +98,12 @@ a {
     z-index: 1000;
     background: var(--header-bg);
     border-bottom: 1px solid var(--border);
-    backdrop-filter: blur(16px);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     padding: 0.8rem 0;
     transition: padding 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
+    will-change: padding, background-color, box-shadow;
+    transform: translateZ(0);
 }
 
 .header.is-scrolled {
