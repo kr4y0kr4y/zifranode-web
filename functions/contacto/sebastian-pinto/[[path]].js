@@ -1,4 +1,4 @@
-import { isValidLink, notFound, privateHeaders, parseCardCookie, readCookie } from '../../../_shared/card-access.js';
+import { isValidLink, notFound, privateHeaders, parseCardCookie, readCookie } from '../../_shared/card-access.js';
 
 async function servePrivateAsset(context) {
     const token = parseCardCookie(readCookie(context.request, 'zn_sp_card'));
