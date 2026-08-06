@@ -1,0 +1,13 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Pinto;Sebastián;;;
+FN:Sebastián Pinto
+ORG:ZifraNode SpA
+TITLE:Gerencia TI
+TEL;TYPE=CELL,VOICE:+56965114266
+EMAIL;TYPE=INTERNET:s.pinto@zifranode.cl
+URL:https://zifranode.cl/
+URL;TYPE=PROFILE:{{PRIVATE_CARD_URL}}
+ADR;TYPE=WORK:;;;Santiago;;;Chile
+NOTE:Infraestructura TI y Ciberseguridad
+END:VCARD

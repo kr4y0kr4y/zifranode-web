@@ -1,9 +1,14 @@
 .DS_Store
 *.log
 node_modules/
+.dev.vars*
+.env
+.env.*
 .vscode/
 # Scripts de desarrollo y generación (no deben exponerse en producción)
 gen_services.py
 update_links.py
 # Activos de respaldo no usados en producción
 logo_backup.png
+# Foto fuente de la tarjeta — no debe desplegarse como recurso público
+perfil2.jpeg
