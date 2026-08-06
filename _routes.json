@@ -1,6 +1,7 @@
 {
   "version": 1,
   "include": [
+    "/t/*",
     "/tarjeta/*",
     "/contacto/sebastian-pinto",
     "/contacto/sebastian-pinto/*",

@@ -1,9 +1,15 @@
 import { privateHeaders, signLink } from '../../_shared/card-access.js';
 
 const NINETY_DAYS = 90 * 24 * 60 * 60;
+const CHARS = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789';
 
 function denied() {
     return new Response('Unauthorized', { status: 401, headers: privateHeaders({ 'WWW-Authenticate': 'Bearer' }) });
+}
+
+function randomShortCode() {
+    const bytes = crypto.getRandomValues(new Uint8Array(6));
+    return Array.from(bytes, b => CHARS[b % CHARS.length]).join('');
 }
 
 export async function onRequestPost(context) {
@@ -21,10 +27,18 @@ export async function onRequestPost(context) {
     );
 
     const signature = await signLink(context.env.CARD_LINK_SECRET, linkId, expiresAt);
-    const url = new URL('/tarjeta/sebastian-pinto', context.request.url);
-    url.searchParams.set('id', linkId);
-    url.searchParams.set('exp', String(expiresAt));
-    url.searchParams.set('sig', signature);
+    const fullUrl = new URL('/tarjeta/sebastian-pinto', context.request.url);
+    fullUrl.searchParams.set('id', linkId);
+    fullUrl.searchParams.set('exp', String(expiresAt));
+    fullUrl.searchParams.set('sig', signature);
 
-    return Response.json({ url: url.toString(), expiresAt }, { headers: privateHeaders() });
+    const code = randomShortCode();
+    const shortUrl = new URL(`/t/${code}`, context.request.url);
+    await context.env.CARD_LINKS.put(
+        `short:${code}`,
+        fullUrl.toString(),
+        { expiration: expiresAt }
+    );
+
+    return Response.json({ shortUrl: shortUrl.toString(), url: fullUrl.toString(), expiresAt }, { headers: privateHeaders() });
 }
