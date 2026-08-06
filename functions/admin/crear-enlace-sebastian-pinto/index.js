@@ -1,4 +1,4 @@
-import { privateHeaders, signLink } from '../_shared/card-access.js';
+import { privateHeaders, signLink } from '../../_shared/card-access.js';
 
 const NINETY_DAYS = 90 * 24 * 60 * 60;
 
