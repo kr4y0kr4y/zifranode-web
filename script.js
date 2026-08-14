@@ -45,6 +45,7 @@ if (mobileToggle && navList) {
         const isOpen = navList.classList.toggle('active');
         mobileToggle.classList.toggle('active', isOpen);
         mobileToggle.setAttribute('aria-expanded', String(isOpen));
+        mobileToggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
     });
 
     document.querySelectorAll('.nav-link').forEach((link) => {
@@ -52,6 +53,7 @@ if (mobileToggle && navList) {
             navList.classList.remove('active');
             mobileToggle.classList.remove('active');
             mobileToggle.setAttribute('aria-expanded', 'false');
+            mobileToggle.setAttribute('aria-label', 'Abrir menú');
         });
     });
 }
