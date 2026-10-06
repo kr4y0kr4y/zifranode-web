@@ -1,36 +1,49 @@
-# Tarjeta digital privada en Cloudflare Pages
+# Tarjeta privada sin Cloudflare Access
 
-La tarjeta está protegida mediante enlaces firmados de 90 días y revocables. Las rutas `/contacto/sebastian-pinto/` y sus activos devuelven `404` sin una cookie de sesión válida. El cliente solo recibe esa cookie después de abrir un enlace firmado.
+La solución local no requiere Cloudflare Zero Trust, tarjeta de crédito ni suscripción. Los enlaces nuevos son códigos aleatorios de 128 bits que vencen a los 90 días. Solo se guardan en Workers KV; se pueden revocar eliminando su clave. La web pública no incluye un endpoint administrativo para crearlos. Los enlaces firmados anteriores siguen funcionando hasta su vencimiento y aún usan `CARD_LINK_SECRET`.
 
-## Configuración única en Cloudflare
+## Preparación de la versión
 
-1. Publica este repositorio como un proyecto **Cloudflare Pages**. Pages detecta las Functions dentro de `functions/` y `_routes.json` limita su ejecución a las rutas privadas.
-2. Crea un namespace de **Workers KV** (por ejemplo, `zifranode-card-links`) y vincúlalo al proyecto Pages como `CARD_LINKS`.
-3. En **Settings > Variables and Secrets**, crea como secretos cifrados:
-   - `CARD_LINK_SECRET`: valor aleatorio de al menos 32 bytes.
-   - `CARD_ADMIN_TOKEN`: segundo valor aleatorio e independiente, utilizado solo para crear enlaces.
-4. En Cloudflare Zero Trust, protege `/admin/*` con una aplicación Access que solo permita tu correo. El token administrativo sigue siendo obligatorio como segunda capa.
-5. Para una ruta de control de acceso, configura Pages Functions en modo **fail closed**.
+- Pages `zifranode-web` usa el build `python3 scripts/build_site.py && python3 scripts/check_site.py` y la salida `dist`. Los despliegues automáticos desde `main` están habilitados.
+- Pages Functions está en **Fail closed**. `CARD_LINKS` está vinculado a KV. `CARD_LINK_SECRET` y `CARD_ADMIN_TOKEN` aparecen como secretos cifrados; sus valores no se leyeron ni verificaron.
+- La regla de rate limiting está activa para `/admin/*`, `/t/*` y `/tarjeta/*`: 10 solicitudes por IP cada 10 segundos, bloqueo de 10 segundos. Tras publicar este código, `/admin/*` ya no tendrá Function.
+- Cloudflare Access no se configuró. La nueva arquitectura no lo necesita porque no expone operaciones administrativas desde la web.
+- Las vistas previas de Pages son públicas por defecto; se debe revisar su alcance antes de compartirlas.
 
-No guardes estos valores en Git, en archivos del sitio ni en el código. `.dev.vars` y `.env` ya están ignorados.
+## Publicación y verificación
 
-## Crear un enlace para un cliente
+Publicar exclusivamente `dist/`. El build permite solo los activos públicos; los originales de la tarjeta privada quedan fuera de `dist` y sus recursos se integran en la Function que exige una cookie válida. `_routes.json` solo invoca Functions en las rutas privadas. Antes de fusionar una versión, comprobar un build de vista previa, los bindings y el flujo completo. No se necesita activar Zero Trust.
 
-Envía una solicitud POST al endpoint administrativo desde un equipo de confianza. Sustituye los valores entre corchetes; el token nunca debe incorporarse en una URL, QR o repositorio.
+`CARD_LINKS` debe seguir vinculado en producción. Mantén `CARD_LINK_SECRET` mientras existan enlaces firmados antiguos. `CARD_ADMIN_TOKEN` se puede eliminar de Pages después de publicar esta versión, pues ya no habrá endpoint administrativo.
+
+## Crear un enlace sin pagar
+
+En el equipo de confianza, desde este proyecto:
 
 ```sh
-curl -X POST 'https://zifranode.cl/admin/crear-enlace-sebastian-pinto' \
-  -H 'Authorization: Bearer [CARD_ADMIN_TOKEN]'
+python3 scripts/issue_private_card.py issue
 ```
 
-La respuesta contiene `url` y `expiresAt`. Comparte solamente `url` con el cliente o conviértela en QR. El cliente no verá formularios, contraseñas ni registro.
+El comando genera una URL `https://zifranode.cl/t/[código]`, una clave `access:[código]`, un valor JSON y una expiración Unix. **El enlace no funcionará hasta guardar la clave en el namespace KV vinculado como `CARD_LINKS`.** Puedes agregarla manualmente en el panel Workers KV, con la expiración indicada. No compartas el código ni la salida antes de guardar la clave; la URL es una credencial.
 
-## Revocar un enlace antes de 90 días
+Para automatizar la escritura, crea un API token limitado al permiso **Account → Workers KV Storage Write** para esta cuenta. Al usar `--write`, el script lee `CF_API_TOKEN`, `CF_ACCOUNT_ID` y `CF_KV_NAMESPACE_ID` del entorno y escribe la clave mediante la API oficial. No guardes el token en Git ni en archivos del sitio:
 
-En Workers KV, elimina la clave `sebastian-pinto:[id]`, donde `[id]` es el valor `id` del enlace emitido. Desde ese momento el enlace y su cookie asociada responderán `404`.
+```sh
+python3 scripts/issue_private_card.py issue --write
+```
 
-La URL firmada es una credencial: una persona que la reciba puede reenviarla mientras esté vigente. No se revela por el encabezado Referrer, no se almacena en caché y no se indexa, pero no existe una forma de impedir que un destinatario autorizado comparta una credencial sin añadir autenticación individual.
+El script no intenta escribir ni borrar nada sin `--write`. El código aleatorio tiene 128 bits de entropía; el valor en KV caduca a los 90 días y la cookie también. Los recursos privados verifican KV en cada solicitud.
 
-## Antes de publicar
+## Revocar
 
-`perfil2.jpeg` permanece en la raíz como archivo fuente que no utiliza la tarjeta. Si el proceso de publicación sincroniza todos los archivos del proyecto, elimínalo o exclúyelo antes de desplegar: de otro modo seguiría siendo un recurso público independiente.
+```sh
+python3 scripts/issue_private_card.py revoke [código]
+```
+
+El comando muestra la clave `access:[código]` que debes borrar en Workers KV. Con `--write` la borra por API. Al propagarse la eliminación, la URL y la cookie dejan de autorizar la tarjeta. KV tiene consistencia eventual: la revocación puede tardar 60 segundos o más en algunas ubicaciones. Los enlaces anteriores se revocan eliminando `sebastian-pinto:[id]` en KV.
+
+## Comprobación local
+
+Ejecuta `python3 scripts/build_site.py && python3 scripts/check_site.py`. La salida excluye la tarjeta, su retrato, brochure, scripts de desarrollo y la Function administrativa. Para probar las Functions con KV local se necesita `wrangler pages dev dist --kv=CARD_LINKS`; nunca conectes el KV de producción a una prueba local.
+
+El formulario público usa Web3Forms. Antes de publicar, revisa allí el filtrado de spam y los dominios permitidos. El honeypot y la validación de longitud del sitio son controles complementarios.

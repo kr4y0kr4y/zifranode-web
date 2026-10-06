@@ -14,6 +14,12 @@ export function privateHeaders(headers = {}) {
         'Referrer-Policy': 'no-referrer',
         'X-Content-Type-Options': 'nosniff',
         'X-Robots-Tag': 'noindex, nofollow, nosnippet, noarchive',
+        'X-Frame-Options': 'DENY',
+        'Permissions-Policy': 'geolocation=(), microphone=(), camera=(), payment=()',
+        'Cross-Origin-Opener-Policy': 'same-origin',
+        'Cross-Origin-Resource-Policy': 'same-origin',
+        'Strict-Transport-Security': 'max-age=31536000; includeSubDomains',
+        'Content-Security-Policy': "default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'",
         ...headers
     };
 }
@@ -70,6 +76,23 @@ export async function isValidLink(env, linkId, expiresAt, signature) {
     }
 }
 
+export async function isValidOpaqueLink(env, code) {
+    if (!env.CARD_LINKS || !/^[a-f0-9]{32}$/.test(code)) return null;
+    try {
+        const record = await env.CARD_LINKS.get(`access:${code}`, 'json');
+        if (!record || record.revoked || !Number.isSafeInteger(record.expiresAt)) return null;
+        if (record.expiresAt <= Math.floor(Date.now() / 1000)) return null;
+        return record;
+    } catch {
+        return null;
+    }
+}
+
+export function opaqueCardCookie(code, expiresAt) {
+    const maxAge = Math.max(0, expiresAt - Math.floor(Date.now() / 1000));
+    return `zn_sp_card=opaque.${code}; Path=/contacto/sebastian-pinto; Max-Age=${maxAge}; HttpOnly; Secure; SameSite=Lax`;
+}
+
 export function cardCookie(linkId, expiresAt, signature) {
     const maxAge = Math.max(0, expiresAt - Math.floor(Date.now() / 1000));
     return `zn_sp_card=${linkId}.${expiresAt}.${signature}; Path=/contacto/sebastian-pinto; Max-Age=${maxAge}; HttpOnly; Secure; SameSite=Lax`;
@@ -78,6 +101,7 @@ export function cardCookie(linkId, expiresAt, signature) {
 export function parseCardCookie(value) {
     if (!value) return null;
     const [linkId, expiry, signature] = value.split('.');
+    if (linkId === 'opaque') return /^[a-f0-9]{32}$/.test(expiry || '') && !signature ? { opaqueCode: expiry } : null;
     const expiresAt = Number(expiry);
     return linkId && signature && Number.isSafeInteger(expiresAt) ? { linkId, expiresAt, signature } : null;
 }

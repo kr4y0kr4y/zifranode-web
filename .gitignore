@@ -12,3 +12,10 @@ update_links.py
 logo_backup.png
 # Foto fuente de la tarjeta — no debe desplegarse como recurso público
 perfil2.jpeg
+# Salida pública generada; publicar únicamente este directorio
+dist/
+.wrangler/
+# Copias generadas para los módulos privados de Wrangler
+contacto/sebastian-pinto/contact-card-script.txt
+contacto/sebastian-pinto/sebastian-pinto-module.txt
+contacto/sebastian-pinto/assets/*.bin

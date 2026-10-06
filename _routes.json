@@ -4,8 +4,7 @@
     "/t/*",
     "/tarjeta/*",
     "/contacto/sebastian-pinto",
-    "/contacto/sebastian-pinto/*",
-    "/admin/*"
+    "/contacto/sebastian-pinto/*"
   ],
   "exclude": []
 }

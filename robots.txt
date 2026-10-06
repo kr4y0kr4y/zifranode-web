@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /t/
+Disallow: /tarjeta/
+Disallow: /contacto/sebastian-pinto/
+Sitemap: https://zifranode.cl/sitemap.xml

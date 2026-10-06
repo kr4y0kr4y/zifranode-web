@@ -1,174 +1,118 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diseño y Configuración de Redes Corporativas LAN/WAN | ZifraNode</title>
-    <meta name="description" content="Ingeniería de redes: routers y switches Cisco/Fortinet, enlaces Wi-Fi 6 corporativos, enlaces dedicados y balanceo de carga para empresas en Santiago.">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/png" href="logo_favicon.png">
-    
-    <!-- Open Graph tags for premium social sharing -->
-    <meta property="og:title" content="Diseño y Configuración de Redes Corporativas LAN/WAN | ZifraNode">
-    <meta property="og:description" content="Ingeniería de redes: routers y switches Cisco/Fortinet, enlaces Wi-Fi 6 corporativos, enlaces dedicados y balanceo de carga para empresas en Santiago.">
-    <meta property="og:image" content="https://zifranode.cl/logo.png">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://zifranode.cl/redes.html">
-    <link rel="canonical" href="https://zifranode.cl/redes.html">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Redes LAN/WAN | ZN Technology by ZifraNode</title>
+<meta name="description" content="Diseño, configuración y optimización de redes empresariales. Atención en la Región Metropolitana, Chile.">
+<link rel="canonical" href="https://zifranode.cl/redes.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_CL">
+<meta property="og:title" content="Redes LAN/WAN | ZN Technology by ZifraNode">
+<meta property="og:description" content="Diseño, configuración y optimización de redes empresariales. Atención en la Región Metropolitana, Chile.">
+<meta property="og:url" content="https://zifranode.cl/redes.html">
+<meta property="og:image" content="https://zifranode.cl/images/web/rack.webp">
+<link rel="icon" href="logo_favicon.png" type="image/png">
+<link rel="stylesheet" href="site.css?v=20261006-2">
+<link rel="stylesheet" href="experience.css?v=8">
 </head>
-<body class="page-service">
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <a href="index.html" class="logo">
-                    <span class="logo-text">ZifraNode</span>
-                </a>
-                <nav class="nav">
-                    <ul class="nav-list">
-                        <li><a href="index.html#inicio" class="nav-link">Inicio</a></li>
-                        <li><a href="index.html#servicios" class="nav-link active">Servicios</a></li>
-                        <li><a href="index.html#panorama" class="nav-link">Panorama</a></li>
-                        <li><a href="index.html#contacto" class="nav-link btn-contact">Cotizar Proyecto</a></li>
-                    </ul>
-                    <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema (Claro / Oscuro)">
-                        <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="5"></circle>
-                            <line x1="12" y1="1" x2="12" y2="3"></line>
-                            <line x1="12" y1="21" x2="12" y2="23"></line>
-                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                            <line x1="1" y1="12" x2="3" y2="12"></line>
-                            <line x1="21" y1="12" x2="23" y2="12"></line>
-                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                        </svg>
-                        <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                        </svg>
-                    </button>
-                    <button class="mobile-toggle" aria-label="Abrir menú" aria-expanded="false">
-                        <span></span><span></span><span></span>
-                    </button>
-                </nav>
-            </div>
-        </div>
-    </header>
-
-    <div class="breadcrumb">
-        <div class="container">
-            <a href="index.html">Inicio</a> &gt; <a href="index.html#servicios">Servicios</a> &gt; <span class="current">Redes LAN/WAN</span>
-        </div>
-    </div>
-
-    <!-- Service Hero -->
-    <section class="service-hero">
-        <div class="container">
-            <div class="service-hero-content">
-                <div class="service-hero-icon">
-                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10" /><line x1="2" y1="12" x2="22" y2="12" /><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" /></svg>
-                </div>
-                <h1 class="hero-title">Redes LAN/WAN</h1>
-                <p class="hero-subtitle">Conectividad robusta, rápida e ininterrumpida. Su empresa no puede detenerse por fallas de red.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Service Details -->
-    <section class="service-details">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Nuestras Soluciones en Redes LAN/WAN</h2>
-                <p class="section-subtitle">Nivel experto para infraestructuras corporativas</p>
-            </div>
-            
-            <div class="feature-list-grid">
-                
-                <div class="feature-card">
-                    <div class="feature-title">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                        <h4>Diseño de Topologías</h4>
-                    </div>
-                    <p>Arquitectura de red escalable basada en estándares internacionales para edificios y plantas logísticas.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-title">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                        <h4>Equipamiento Activo (Switches & Routers)</h4>
-                    </div>
-                    <p>Configuración experta de equipos Cisco, Fortinet, Ubiquiti, Mikrotik. VLANs, QoS y enrutamiento avanzado.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-title">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                        <h4>Redes Inalámbricas (Wi-Fi 6)</h4>
-                    </div>
-                    <p>Despliegue de Access Points con roaming fluido, portales cautivos y separación de redes de invitados/corporativas.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-title">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                        <h4>Enlaces Dedicados</h4>
-                    </div>
-                    <p>Gestión y balanceo de carga (Failover y Load Balancing) entre múltiples proveedores de internet para latencia cero.</p>
-                </div>
-            </div>
-
-            <div class="service-page-cta">
-                <h3>¿Necesita cotizar un proyecto de Redes LAN/WAN?</h3>
-                <p>Nuestros ingenieros e instaladores están preparados para evaluar su requerimiento e implementar una solución "llave en mano".</p>
-                <a href="index.html?service=redes#contacto" class="btn btn-primary btn-lg">Contactar a un Asesor</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <div class="footer-brand-name">ZifraNode</div>
-                    <p>Integradores tecnológicos. Soluciones hardware, infraestructura, redes y seguridad de clase empresarial.</p>
-                </div>
-                <div class="footer-links">
-                    <div class="footer-column">
-                        <h4>Servicios Físicos</h4>
-                        <ul>
-                            <li><a href="cableado.html">Cableado y Fibra</a></li>
-                            <li><a href="alarmas.html">Alarmas y CCTV</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h4>Servicios Lógicos</h4>
-                        <ul>
-                            <li><a href="redes.html">Redes LAN/WAN</a></li>
-                            <li><a href="ciberseguridad.html">Ciberseguridad</a></li>
-                            <li><a href="informatica.html">Informática</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h4>Navegación</h4>
-                        <ul>
-                            <li><a href="index.html">Página Principal</a></li>
-                            <li><a href="index.html#proceso">Proceso de trabajo</a></li>
-                            <li><a href="index.html#contacto">Contacto</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 ZifraNode. Todos los derechos reservados.</p>
-            </div>
-        </div>
-    </footer>
-    <script src="script.js"></script>
+<body>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+<header class="site-header">
+<div class="shell header-inner">
+<a class="brand" href="index.html" aria-label="ZN Technology by ZifraNode, inicio">
+<img src="images/web/logo-circular.webp" alt="" width="820" height="820">
+<span>
+<strong>ZN Technology</strong>
+<small>by ZifraNode</small>
+</span>
+</a>
+<button class="menu-toggle" type="button" aria-label="Abrir menú" aria-controls="main-nav" aria-expanded="false">
+<span>
+</span>
+<span>
+</span>
+<span>
+</span>
+</button>
+<nav id="main-nav" class="main-nav" aria-label="Navegación principal">
+<a href="index.html">Inicio</a>
+<a href="servicios.html" aria-current="page">Servicios</a>
+<a href="proyectos.html">Proyectos</a>
+<a href="diagnostico/">Diagnóstico</a>
+<a href="index.html#nosotros">Nosotros</a>
+<a href="index.html#contacto">Contacto</a>
+<a class="nav-cta" href="index.html#contacto">Solicitar evaluación <span aria-hidden="true">↗</span>
+</a>
+</nav>
+</div>
+</header>
+<main id="contenido">
+<section class="inner-hero shell">
+<span class="eyebrow">Servicios / ZN Technology</span>
+<h1>Redes LAN/WAN</h1>
+<p>Diseño, configuración y optimización de redes empresariales.</p>
+<div class="actions">
+<a class="button button-primary" href="index.html?service=redes#contacto">Solicitar evaluación ↗</a>
+<a class="button button-text" href="servicios.html#redes">Ver servicios relacionados ↓</a>
+</div>
+</section>
+<section class="section section-soft">
+<div class="shell detail-card">
+<div class="detail-image">
+<img src="images/web/rack.webp" alt="Trabajo real de ZN Technology en infraestructura tecnológica" loading="lazy">
+</div>
+<div class="detail-content">
+<span class="eyebrow">Enfoque técnico</span>
+<h2>Diseño según el entorno.</h2>
+<p>Revisamos el estado actual, definimos el alcance y documentamos las decisiones antes de implementar.</p>
+<ul class="detail-pills">
+<li>Routers</li>
+<li>Switches</li>
+<li>VLAN</li>
+<li>Segmentación</li>
+<li>Routing</li>
+<li>Redundancia</li>
+<li>Diagnóstico</li>
+</ul>
+</div>
+</div>
+</section>
+<section class="section section-ink">
+<div class="shell short-cta">
+<h2>Conversemos sobre tu proyecto.</h2>
+<a class="button button-primary" href="index.html#contacto">Solicitar evaluación ↗</a>
+</div>
+</section>
+</main>
+<footer class="site-footer">
+<div class="shell footer-grid">
+<div>
+<div class="footer-brand">ZN Technology <em>by ZifraNode</em>
+</div>
+<p>Infraestructura, conectividad y seguridad tecnológica para organizaciones en la Región Metropolitana.</p>
+</div>
+<div>
+<strong>Explorar</strong>
+<a href="servicios.html">Servicios</a>
+<a href="proyectos.html">Proyectos reales</a>
+<a href="diagnostico/">Diagnóstico</a>
+</div>
+<div>
+<strong>Contacto</strong>
+<a href="mailto:contacto@zifranode.cl">contacto@zifranode.cl</a>
+<a href="https://wa.me/56982874767?text=Hola%2C%20vi%20los%20servicios%20de%20ZN%20Technology%20y%20me%20gustar%C3%ADa%20solicitar%20una%20evaluaci%C3%B3n." target="_blank" rel="noopener noreferrer">WhatsApp</a>
+<a href="https://zifranode.cl/">zifranode.cl</a>
+</div>
+</div>
+<div class="shell footer-bottom">
+<span>© 2026 ZifraNode SpA · Región Metropolitana, Chile</span>
+<span>ZN Technology by ZifraNode</span>
+</div>
+</footer>
+<a class="whatsapp-float" href="https://wa.me/56982874767?text=Hola%2C%20vi%20los%20servicios%20de%20ZN%20Technology%20y%20me%20gustar%C3%ADa%20solicitar%20una%20evaluaci%C3%B3n." target="_blank" rel="noopener noreferrer" aria-label="Solicitar evaluación por WhatsApp"><span>WhatsApp ↗</span>
+</a>
+<script src="site.js" defer>
+</script>
 </body>
 </html>
